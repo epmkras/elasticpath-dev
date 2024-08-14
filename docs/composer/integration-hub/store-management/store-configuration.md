@@ -26,7 +26,9 @@ The following Commerce objects are included when importing/exporting store confi
 - [Catalogs](/docs/api/pxm/catalog/create-catalog)
 - [Catalog Rules](/docs/api/pxm/catalog/rules)
 - [Payment Gateway](/docs/api/payments/gateways). The following fields are masked when exporting payment gateways: **password**, **username**, **login**, **merchant_account**, **signature**, **stripe_account**, **merchant_id**, **private_key**, **public_key**, **payer_id**. These fields must be replaced by real values before importing the configuration.
+- [Composer Integration Instances](https://elasticpath.dev/docs/composer/). During export, both enabled and disabled instegration instances are retrieved and marked with the flag `enabled` equals to true or false. During import `enabled` flag is ignored and all integration instances are imported. If the configuration includes an integration that has not been published in the Integrations Hub, the process of importing the integration instance will fail. Ensure that all integrations are published in the Integrations Hub before importing the configuration. All the fields containing "key" or "secret" in the name are masked during exporting integration instances. Before importing configuration those fields need to be replaced with real values. During export, both enabled and disabled instegration instances are retrieved and marked with the flag `enabled` equals to true or false. During import `enabled` flag is ignored and all integration instances are imported.
 
+    
 A Store Configuration Orchestrator Delete Action deletes [products](/docs/api/pxm/products/products) from a store.
 
 For more information, watch a video.
@@ -70,7 +72,8 @@ Once you have [installed Store Configuration Orchestrator](#installing-store-con
     - **Token URL** - Your Commerce API Token URL. For example, `https://euwest.cm.elasticpath.com/oauth/<access_token>` (EU) or `https://useast.api.elasticpath.com/oauth/<access_token>` (US).
 
 1. Click **Connect** to make sure that the authentication is completed successfully.
-1. Click **Next**. The **Store Orchestrator Configuration** page is displayed. The table below describes the options you can configure, depending on the Store Configuration Orchestrator action you are performing.
+1. Enter **Integrations Hub API Domain** (us-east-2.elasticpathintegrations.com or eu-west-1.elasticpathintegrations.com) 
+2. Click **Next**. The **Store Orchestrator Configuration** page is displayed. The table below describes the options you can configure, depending on the Store Configuration Orchestrator action you are performing.
 
     | Option | Action | Description |
     |:--- |:--- | :--- |
